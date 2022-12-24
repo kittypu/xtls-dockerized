@@ -165,7 +165,7 @@ ChangeFlow() {
 	read -p "Current flow control is $CurrentFlowTpe, want to change it?(y or N def N)" ChangeFlowType
 	case "${ChangeFlowType}" in
 	'y' | 'Y')
-		echo -e "Select the new flow control method(def 2):\n1.xtls-rprx-origin\n2.xtls-rprx-direct\n3.xtls-rprx-splice(Linux only)"
+		echo -e "Select the new flow control method(def 2):\n1.xtls-rprx-origin\n2.xtls-rprx-direct\n3.xtls-rprx-splice(Linux only)\n4.xtls-rprx-vision"
 		read FlowType
 		case "${FlowType}" in
 		1)
@@ -175,6 +175,10 @@ ChangeFlow() {
 		3)
 			sed -i "s|$CurrentFlowTpe|xtls-rprx-splice|g" config.json
 			ChangeSettings "FLOW" "xtls-rprx-splice"
+			;;
+		4)
+			sed -i "s|$CurrentFlowTpe|xtls-rprx-vision|g" config.json
+			ChangeSettings "FLOW" "xtls-rprx-vision"
 			;;
 		*)
 			sed -i "s|$CurrentFlowTpe|xtls-rprx-direct|g" config.json

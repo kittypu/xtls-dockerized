@@ -16,7 +16,7 @@ services:
       - ./caddy_config:/config
 
   xray:
-      image: teddysun/xray:1.6.2
+      image: teddysun/xray:1.6.6
       user: root
     #   network_mode: host
       restart: always
